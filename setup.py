@@ -5,8 +5,8 @@ with open('README.md', 'r') as readme:
 
 setuptools.setup(
     name='mldictionary',
-    version='0.0.1',
-    description='A webscrapy dictionary',
+    version='0.0.2',
+    description='word\'s dictionary for several language',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/PabloEmidio/mldictionary',
