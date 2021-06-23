@@ -1,6 +1,6 @@
 __author__ = 'Pablo Emidio'
 __email__ = 'p.emidiodev@gmail.com'
-__version__ = '0.0.4'
+__version__ = '0.0.5'
 
 from .dictionary import Dictionary
 from .english import English

@@ -5,7 +5,7 @@ with open('README.md', 'r') as readme:
 
 setuptools.setup(
     name='mldictionary',
-    version='0.0.4',
+    version='0.0.5',
     description='word\'s dictionary for several language',
     long_description=long_description,
     long_description_content_type='text/markdown',
