@@ -6,7 +6,7 @@
 >>> from mldictionary import English
 >>> english_dictionary = English()
 >>> snake_means = english_dictionary.get_meanings('snake')
->>> len(snake_means)
+>>> len(snake_means.split('\n\n'))
 4
 >>> snake_means
 '1°: a reptile with a long body and no legs.'
