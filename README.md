@@ -6,10 +6,10 @@
 >>> from mldictionary import English
 >>> english_dictionary = English()
 >>> snake_means = english_dictionary.get_meanings('snake')
->>> len(snake_means.split('\n\n'))
+>>> len(snake_means)
 4
 >>> snake_means
-'1°: a reptile with a long body and no legs.'
+'a reptile with a long body and no legs.'
 ...
 ```
 
@@ -37,13 +37,13 @@ MLDictionary officially supports 3.9+.
 >>> portuguese_dictionary = Portuguese()
 >>> vida_means = portuguese_dictionary.get_meanings('vida')
 >>> vida_means
-'1º: Conjunto dos hábitos e costumes de alguém; maneira de viver: tinha uma vida de milionário.'
+['Conjunto dos hábitos e costumes de alguém; maneira de viver: tinha uma vida de milionário.']
 ...
 >>> from mldictionary import Spanish
 >>> spanish_dictionary = Spanish()
 >>> yo_means = spanish_dictionary.get_meanings('yo')
 >>> yo_means
-'1º: pron. Forma del pron. pers. com. de primera persona singular,' (...)
+['pron. Forma del pron. pers. com. de primera persona singular,' ...]
 ```
 
 ---
