@@ -3,5 +3,5 @@ __pycache__/
 dist/
 build/
 .eggs/
-*.eggs-info/
+*.egg-info/
 
