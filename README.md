@@ -61,7 +61,7 @@ class MyOwnDictionary(Dictionary):
     LANGUAGE = 'language name' #requerid
 
     @classmethod
-    def _clean_html(cls, meanings_html: List[str])->Union[str, bool]:
+    def _clean_html(cls, meanings_html: List[str])->Union[List[str], bool]:
        '''
         method to take html tags out, for some examples, access:
         https://github.com/PabloEmidio/mldictionary/tree/main/mldictionary 
