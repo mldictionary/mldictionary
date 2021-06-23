@@ -9,13 +9,10 @@ class English(Dictionary):
     LANGUAGE = 'English'
 
     @classmethod
-    def _clean_html(cls, meanings_html: List[str])->Union[str, bool]:
-        index = 0
+    def _clean_html(cls, meanings_html: List[str])->Union[List[str], bool]:
         def text_formatter(mean: str)->str:
-            nonlocal index
-            index += 1
-            mean = mean.replace('\n    \t                ', '').replace(':', '.')
-            return f'{index}°: ' + re.sub('<[^>]*>', '', mean)
-        return '\n\n'.join(list(map(text_formatter, meanings_html)))\
-            .replace('\n        \n         ', ':  ') or False
+            mean = mean.replace('\n    \t                ', '').replace(':', '.')\
+                 .replace('\n        \n         ', ':  ')
+            return re.sub('<[^>]*>', '', mean)
+        return list(map(text_formatter, meanings_html)) or False
 

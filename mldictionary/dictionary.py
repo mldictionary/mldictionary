@@ -24,7 +24,7 @@ class Dictionary(ABC):
         
     @classmethod
     @abstractmethod
-    def _clean_html(self, meanings_html: List[str])->Union[str, bool]:
+    def _clean_html(self, meanings_html: List[str])->Union[List[str], bool]:
         ...
 
         

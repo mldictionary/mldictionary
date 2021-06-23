@@ -9,13 +9,11 @@ class Portuguese(Dictionary):
     LANGUAGE = 'Portuguese'
     
     @classmethod
-    def _clean_html(cls, meanings_html: List[str])->Union[str, bool]:
-        index = 0
-        def text_formatter(mean: str)->str:
-            nonlocal index
+    def _clean_html(cls, meanings_html: List[str])->Union[List[str], bool]:
+        def clean_html_tags(mean: str)->str:
             if 'class="cl"' in mean or 'class="etim"' in mean:
-                return ''
-            index+=1
-            return f'{index}º: ' + re.sub('<[^>]*>', '', mean) + '\n\n'
-        return ''.join(list(map(text_formatter, meanings_html)))\
-            .replace('&*remove*&', '') or False
+                return '&&remove&&'
+            return re.sub('<[^>]*>', '', mean)
+        meanings = list(map(clean_html_tags, meanings_html))
+        [meanings.remove('&&remove&&') for _ in range(meanings.count('&&remove&&'))]
+        return meanings or False
