@@ -14,7 +14,7 @@
 ```
 
 <p align="center">
-    <a href="https://pypi.org/project/fastapi" target="_blank" align="center">
+    <a href="https://pypi.org/project/mldictionary/" target="_blank" align="center">
         <img src="https://img.shields.io/pypi/v/mldictionary?color=%2334D058&label=pypi%20package" alt="Package version">
     </a>
 </p>
