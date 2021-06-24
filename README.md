@@ -9,7 +9,7 @@
 >>> len(snake_means)
 4
 >>> snake_means
-'a reptile with a long body and no legs.'
+['a reptile with a long body and no legs: ' ...]
 ...
 ```
 
@@ -37,13 +37,12 @@ MLDictionary officially supports 3.9+.
 >>> portuguese_dictionary = Portuguese()
 >>> vida_means = portuguese_dictionary.get_meanings('vida')
 >>> vida_means
-['Conjunto dos hábitos e costumes de alguém; maneira de viver: tinha uma vida de milionário.']
-...
+['Conjunto dos hábitos e costumes de alguém; maneira de viver: tinha uma vida de milionário.' ...]
 >>> from mldictionary import Spanish
 >>> spanish_dictionary = Spanish()
->>> yo_means = spanish_dictionary.get_meanings('yo')
+>>> yo_means = spanish_dictionary.get_meanings('coche')
 >>> yo_means
-['pron. Forma del pron. pers. com. de primera persona singular,' ...]
+['1. m. Automóvil destinado al transporte de personas y con capacidad no superior a siete plazas.' ...]
 ```
 
 ---
@@ -57,15 +56,17 @@ from mldictionary import Dictionary
 
 class MyOwnDictionary(Dictionary):
     URL = 'somedictionary.com' #required
-    XPATH = '//xpath//of[@class="means"]' #required
     LANGUAGE = 'language name' #requerid
+    TARGET_TAG = 'tag_where_means_is' #depend if you're gonna overwrite _soup_meanings method
+    TARGET_ATTR = {'attr': 'attr_value'} #depend if you're gonna overwrite _soup_meanings method
 
     @classmethod
-    def _clean_html(cls, meanings_html: List[str])->Union[List[str], bool]:
+    def _soup_meanings(cls, html_tree: str)->List[str]: #optional
        '''
-        method to take html tags out, for some examples, access:
-        https://github.com/PabloEmidio/mldictionary/tree/main/mldictionary 
+        Method to overwrite the meanings select by Dictionary class;
+        Used when you wanna change something which comes with the meanings
        '''
 >>> myowndictionary = MyOwnDictionary()
 >>> myowndictionary.get_meanings('other language word')
 ```
+To more details, see the [wiki](https://github.com/PabloEmidio/mldictionary/wiki)
