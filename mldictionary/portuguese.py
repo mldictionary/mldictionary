@@ -6,15 +6,15 @@ from .dictionary import Dictionary
 
 class Portuguese(Dictionary):
     URL = 'https://www.dicio.com.br/{}/'
+    TARGET_TAG = 'p'
+    TARGET_ATTR = {'itemprop': 'description'}
     XPATH = '//p[@itemprop="description"]/span'
     LANGUAGE = 'Portuguese'
     
     @classmethod
-    def _clean_html(cls, meanings_html: List[str])->Union[List[str], bool]:
-        def clean_html_tags(mean: str)->str:
-            if 'class="cl"' in mean or 'class="etim"' in mean:
-                return '&&remove&&'
-            return re.sub('<[^>]*>', '', mean)
-        meanings = list(map(clean_html_tags, meanings_html))
-        [meanings.remove('&&remove&&') for _ in range(meanings.count('&&remove&&'))]
-        return meanings or False
+    def _soup_meanings(cls, html_tree: str)->List[str]:
+        soup = BeautifulSoup(html_tree, 'html.parser')
+        meaning_tags = soup.find(cls.TARGET_TAG, cls.TARGET_ATTR).find_all('span')
+        cleaned_meaning = [valid_means for valid_means in meaning_tags \
+                         if not 'class="cl"' in str(valid_means) if not 'class="etim"' in str(valid_means)]
+        return list(dict.fromkeys([mean.get_text() for mean in cleaned_meaning]))
