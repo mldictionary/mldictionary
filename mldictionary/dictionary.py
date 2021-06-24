@@ -24,14 +24,13 @@ class Dictionary:
 
 
     @classmethod
-    @abstractmethod
-    def _clean_html(self, meanings_html: List[str])->Union[List[str], bool]:
-        ...
+    def _soup_meanings(cls, html_tree: str)->List[str]:
+        soup = BeautifulSoup(html_tree, 'html.parser')
+        meaning_tags = soup.find_all(cls.TARGET_TAG, cls.TARGET_ATTR)
+        return list(dict.fromkeys([mean.get_text() for mean in meaning_tags])) # don't allow duplicated item
+
 
     def get_meanings(self, word: str)->List[str]:
         word = unicodedata.normalize('NFD', word)
         word = re.sub('[\u0300-\u036f]', '', word)
-        response = Selector(text=self._search(word))
-        meanings_html = list(dict.fromkeys(response.xpath(self.XPATH).getall()))# don't allow duplicated item
-        meanings = self._clean_html(meanings_html)
-        return meanings
+        return self._soup_meanings(self._search(word))
