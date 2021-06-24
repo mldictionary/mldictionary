@@ -1,10 +1,9 @@
-from abc import ABC, abstractmethod
 import unicodedata
 import re
 import requests
-from typing import List, Union
+from typing import List
 
-from parsel import Selector
+from bs4 import BeautifulSoup
 
 class Dictionary(ABC):
     URL: str = ''
