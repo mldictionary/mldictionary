@@ -5,10 +5,7 @@ from typing import List
 
 from bs4 import BeautifulSoup
 
-class Dictionary(ABC):
-    URL: str = ''
-    XPATH: str = ''
-    LANGUAGE: str = ''
+class Dictionary:
     
     def __str__(self)->str:
         return self.LANGUAGE
