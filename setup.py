@@ -14,7 +14,7 @@ setuptools.setup(
     author_email='p.emidiodev@gmail.com',
     license='MIT',
     packages=setuptools.find_packages(),
-    install_requires=['requests>=2.25.1', 'parsel>=1.6.0'],
+    install_requires=['requests>=2.25.1', 'beautifulsoup4>=4.9.3'],
     python_requires='>=3.9',
     classifiers=[
     "Programming Language :: Python :: 3",
