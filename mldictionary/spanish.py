@@ -1,16 +1,7 @@
-import re
-from typing import List, Union
-
 from .dictionary import Dictionary
 
 class Spanish(Dictionary):
-    URL = 'https://www.wordreference.com/definicion/{}'
-    XPATH = '//ol[@class="entry"]//li'
+    URL = 'https://dle.rae.es/{}?m=form'
+    TARGET_TAG = 'p'
+    TARGET_ATTR = {'class': 'j'}
     LANGUAGE = 'Spanish'
-    
-    @classmethod
-    def _clean_html(cls,  meanings_html: List[str])->Union[List[str], bool]:
-        def text_formatter(mean: str)->str:
-            mean = mean.replace('<br>', '\n\t\t')
-            return re.sub('<[^>]*>', '', mean)
-        return list(map(text_formatter, meanings_html)) or False
