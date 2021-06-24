@@ -25,9 +25,12 @@ class Dictionary:
 
     @classmethod
     def _soup_meanings(cls, html_tree: str)->List[str]:
-        soup = BeautifulSoup(html_tree, 'html.parser')
-        meaning_tags = soup.find_all(cls.TARGET_TAG, cls.TARGET_ATTR)
-        return list(dict.fromkeys([mean.get_text() for mean in meaning_tags])) # don't allow duplicated item
+        try:
+            soup = BeautifulSoup(html_tree, 'html.parser')
+            meaning_tags = soup.find_all(cls.TARGET_TAG, cls.TARGET_ATTR)
+            return list(dict.fromkeys([mean.get_text() for mean in meaning_tags])) # don't allow duplicated item
+        except:
+            return []
 
 
     def get_meanings(self, word: str)->List[str]:

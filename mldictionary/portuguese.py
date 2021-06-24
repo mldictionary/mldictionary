@@ -13,8 +13,11 @@ class Portuguese(Dictionary):
     
     @classmethod
     def _soup_meanings(cls, html_tree: str)->List[str]:
-        soup = BeautifulSoup(html_tree, 'html.parser')
-        meaning_tags = soup.find(cls.TARGET_TAG, cls.TARGET_ATTR).find_all('span')
-        cleaned_meaning = [valid_means for valid_means in meaning_tags \
-                         if not 'class="cl"' in str(valid_means) if not 'class="etim"' in str(valid_means)]
-        return list(dict.fromkeys([mean.get_text() for mean in cleaned_meaning]))
+        try:
+            soup = BeautifulSoup(html_tree, 'html.parser')
+            meaning_tags = soup.find(cls.TARGET_TAG, cls.TARGET_ATTR).find_all('span')
+            cleaned_meaning = [valid_means for valid_means in meaning_tags \
+                            if not 'class="cl"' in str(valid_means) if not 'class="etim"' in str(valid_means)]
+            return list(dict.fromkeys([mean.get_text() for mean in cleaned_meaning]))
+        except:
+            return []
