@@ -40,8 +40,8 @@ MLDictionary officially supports 3.9+.
 ['Conjunto dos hábitos e costumes de alguém; maneira de viver: tinha uma vida de milionário.' ...]
 >>> from mldictionary import Spanish
 >>> spanish_dictionary = Spanish()
->>> yo_means = spanish_dictionary.get_meanings('coche')
->>> yo_means
+>>> coche_means = spanish_dictionary.get_meanings('coche')
+>>> coche_means
 ['1. m. Automóvil destinado al transporte de personas y con capacidad no superior a siete plazas.' ...]
 ```
 
