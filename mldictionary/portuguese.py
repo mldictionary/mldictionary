@@ -1,5 +1,6 @@
-import re
-from typing import List, Union
+from typing import List
+
+from bs4 import BeautifulSoup
 
 from .dictionary import Dictionary
 
