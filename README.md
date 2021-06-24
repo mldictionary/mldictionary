@@ -49,8 +49,7 @@ MLDictionary officially supports 3.9+.
 
 ### Make your own dictionary
 ```python
-import re # to take html tags out with regex
-from typing import List, Union
+from typing import List
 
 from mldictionary import Dictionary
 
