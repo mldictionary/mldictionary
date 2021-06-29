@@ -15,7 +15,13 @@
 
 <p align="center">
     <a href="https://pypi.org/project/mldictionary/" target="_blank" align="center">
-        <img src="https://img.shields.io/pypi/v/mldictionary?color=%2334D058&label=pypi%20package" alt="Package version">
+        <img alt="PyPI" src="https://img.shields.io/pypi/v/mldictionary?color=%233f7&logo=pypi&style=plastic">    
+    </a>&nbsp&nbsp
+    <a href="https://pypi.org/project/mldictionary/" target="_blank" align="center">
+        <img alt="PyPI - License" src="https://img.shields.io/pypi/l/mldictionary?color=%237f7&logo=pypi&style=plastic">    
+    </a>&nbsp&nbsp
+    <a href="https://pypi.org/project/mldictionary/" target="_blank" align="center">
+        <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/mldictionary?color=%237f7&logo=pypi&style=plastic">    
     </a>
 </p>
 
