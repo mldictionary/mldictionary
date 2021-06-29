@@ -69,3 +69,5 @@ class MyOwnDictionary(Dictionary):
 >>> myowndictionary.get_meanings('other language word')
 ```
 To more details, see the [wiki](https://github.com/PabloEmidio/mldictionary/wiki)
+
+Also, it has a insightful [article on linkedin](https://www.linkedin.com/pulse/mldictionary-pablo-em%25C3%25ADdio)
