@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mldictionary"
-version = "0.1.7"
+version = "0.1.8"
 description = "word's dictionary for several languages"
 authors = ["Pablo Emidio <p.emidiodev@gmail.com>"]
 license = "MIT"
@@ -18,8 +18,8 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.9"
-requests= "^2.25.1"
-beautifulsoup4 = "^4.9.3"
+requests = "2.25.1"
+bs4 = "^0.0.1"
 
 [tool.poetry.dev-dependencies]
 
