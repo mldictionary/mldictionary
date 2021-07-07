@@ -1,6 +1,28 @@
-[build-system]
-requires = [
-	"setuptools>=56",
-	"wheel"
+[tool.poetry]
+name = "mldictionary"
+version = "0.1.7"
+description = "word's dictionary for several languages"
+authors = ["Pablo Emidio <p.emidiodev@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://pypi.org/project/mldictionary/"
+repository = "https://github.com/PabloEmidio/mldictionary"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
 ]
-build-backend = "setuptools.build_meta"
+packages = [
+    {include = "mldictionary"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests= "^2.25.1"
+beautifulsoup4 = "^4.9.3"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
