@@ -7,19 +7,22 @@ on:
   push:
 
 jobs:
-  unittest:
+  run-unittest:
+    name: Unitest job
     runs-on: ubuntu-latest
     steps:
-      - name: Install python3.9
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.9
+      - uses: actions/checkout@v2
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
 
       - name: Install poetry
-      uses: Gr1N/setup-poetry@v5
+        uses: Gr1N/setup-poetry@v5
 
       - name: Install dependencies
-      run: poetry install
+        run: poetry install
 
       - name: Runs unittest
-      run: poetry run python -m unittest
+        run: poetry run python -m unittest
