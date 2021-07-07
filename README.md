@@ -21,6 +21,9 @@
         <img alt="PyPI - License" src="https://img.shields.io/pypi/l/mldictionary?color=%237f7&logo=pypi&style=plastic">    
     </a>&nbsp;&nbsp;
     <a href="https://pypi.org/project/mldictionary/" target="_blank" align="center">
+<img alt="GitHub Workflow Status (event)" src="https://img.shields.io/github/workflow/status/pabloemidio/mldictionary/unittest?color=%233f7&label=tests&logo=pypi&style=plastic">
+    </a>&nbsp;&nbsp;
+    <a href="https://pypi.org/project/mldictionary/" target="_blank" align="center">
         <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/mldictionary?color=%237f7&logo=pypi&style=plastic">    
     </a>
 </p>
