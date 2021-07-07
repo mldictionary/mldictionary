@@ -1,0 +1,25 @@
+name: unittest
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+
+jobs:
+  unittest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install python3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+      - name: Install poetry
+      uses: Gr1N/setup-poetry@v5
+
+      - name: Install dependencies
+      run: poetry install
+
+      - name: Runs unittest
+      run: poetry run python -m unittest
