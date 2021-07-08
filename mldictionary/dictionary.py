@@ -16,11 +16,11 @@ class Dictionary:
         return self.LANGUAGE
 
     @classmethod
-    def _search(cls, word: str) -> str:
+    def _search(cls, word: str) -> requests.models.Response:
         with requests.get(
             cls.URL.format(word), headers={'User-Agent': 'Mozilla'}
         ) as response:
-            return response.text
+            return response
 
     @classmethod
     def _soup_meanings(cls, html_tree: str) -> List[str]:
@@ -35,4 +35,4 @@ class Dictionary:
     def get_meanings(self, word: str) -> List[str]:
         word = unicodedata.normalize('NFD', word)
         word = re.sub('[\u0300-\u036f]', '', word)
-        return self._soup_meanings(self._search(word))
+        return self._soup_meanings(self._search(word).text)
