@@ -27,7 +27,9 @@ class TestPortuguese(unittest.TestCase):
         self.assertIsInstance(self.portuguese_dictionary.get_meanings('palavra'), list)
 
     def test_method_get_meanings_not_found_word_type(self):
-        self.assertIsInstance(self.portuguese_dictionary.get_meanings('jsh'), list)
+        not_found_meaning = self.portuguese_dictionary.get_meanings('jsh')
+        self.assertIsInstance(not_found_meaning, list)
+        self.assertEqual(len(not_found_meaning), 0)
 
     def test_method_get_meanings_return_content(self):
         is_all_content_valid = all(
