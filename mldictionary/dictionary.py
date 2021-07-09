@@ -1,3 +1,5 @@
+"""Module dictionary"""
+
 import unicodedata
 import re
 import requests
