@@ -34,7 +34,6 @@ class Portuguese(Dictionary):
     URL = 'https://www.dicio.com.br/{}/'
     TARGET_TAG = 'p'
     TARGET_ATTR = {'itemprop': 'description'}
-    XPATH = '//p[@itemprop="description"]/span'
     LANGUAGE = 'Portuguese'
 
     @classmethod
