@@ -1,3 +1,9 @@
+"""Get Spanish meanings from dictionary's websites.
+
+    Classes:
+        Spanish
+"""
+
 from .dictionary import Dictionary
 
 
