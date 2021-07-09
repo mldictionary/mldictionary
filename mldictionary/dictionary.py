@@ -39,6 +39,8 @@ class Dictionary:
     TARGET_ATTR: dict[str, str]
 
     def __str__(self) -> str:
+        """Return dictionary's language"""
+
         return self.LANGUAGE
 
     @classmethod
@@ -59,6 +61,8 @@ class Dictionary:
             return []
 
     def get_meanings(self, word: str) -> List[str]:
+        """Return a list of meanings."""
+
         word = unicodedata.normalize('NFD', word)
         word = re.sub('[\u0300-\u036f]', '', word)
         return self._soup_meanings(self._search(word).text)
