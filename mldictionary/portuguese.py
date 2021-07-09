@@ -1,3 +1,9 @@
+"""Get Portuguese meanings from dictionary's websites.
+
+    Classes:
+        Portuguese
+"""
+
 from typing import List
 
 from bs4 import BeautifulSoup
