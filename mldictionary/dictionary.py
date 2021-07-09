@@ -9,6 +9,30 @@ from bs4 import BeautifulSoup
 
 
 class Dictionary:
+    """Dictionary class to use as a base to build dictionaries.
+
+    class attributes:
+        URL: str
+            URL from a dictionary website replacing word's name to "{}"
+        LANGUAGE: str
+            Dictionary's language's name
+        TARGET_TAG: str
+            HTML tag which has the meanings
+        TARGET_ATTR: dict[str, str]
+            Pair attribute: value which makes TARGET_TAG unique
+
+    Class public methods:
+        get_meanings(self, word: str) -> List[str]:
+            return the word's meanings
+
+    Class private methods:
+        def _search(cls, word: str) -> requests.models.Response:
+            Searche the word's meanings and
+            return a requests.models.Response from that
+        def _soup_meanings(cls, html_tree: str) -> List[str]:
+            Soup a HTML tree and find out all meanings specified
+    """
+
     URL: str
     LANGUAGE: str
     TARGET_TAG: str
