@@ -12,6 +12,25 @@ from .dictionary import Dictionary
 
 
 class Portuguese(Dictionary):
+    """Get word's meanings in Portuguese from dicio.com.br.
+
+    ...
+
+    Attributes:
+        URL: str = 'https://www.dicio.com.br/{}/'
+            URL from a dictionary website replacing word's name to "{}"
+        LANGUAGE: str = 'Portuguese'
+            Dictionary's language's name
+        TARGET_TAG: str = 'p'
+            HTML tag which has the meanings
+        TARGET_ATTR: dict[str, str] = {'itemprop': 'description'}
+            Pair attribute: value which makes TARGET_TAG unique
+
+    Methods:
+        get_meanings(self, word: str) -> List[str]:
+            return the word's meanings
+    """
+
     URL = 'https://www.dicio.com.br/{}/'
     TARGET_TAG = 'p'
     TARGET_ATTR = {'itemprop': 'description'}
