@@ -1,3 +1,9 @@
+"""Get English meanings from dictionary's websites.
+
+Classes:
+    English
+"""
+
 from .dictionary import Dictionary
 
 
