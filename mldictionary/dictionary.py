@@ -2,10 +2,10 @@
 
 import unicodedata
 import re
-import requests
 from typing import List
 
 from bs4 import BeautifulSoup
+import requests
 
 
 class Dictionary:
