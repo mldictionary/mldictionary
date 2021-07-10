@@ -41,13 +41,15 @@ class Portuguese(Dictionary):
         try:
             soup = BeautifulSoup(html_tree, 'html.parser')
             meaning_tags = soup.find(cls.TARGET_TAG, cls.TARGET_ATTR).find_all('span')
-            cleaned_meaning = [
-                valid_means
-                for valid_means in meaning_tags
-                if not 'class="cl"' in str(valid_means)
-                if not 'class="etim"' in str(valid_means)
-                if not str(valid_means)[:17]=='<span class="tag"'
+            cleaned_meanings = [
+                valid_meaning
+                for valid_meaning in meaning_tags
+                if not 'class="cl"' in str(valid_meaning)
+                if not 'class="etim"' in str(valid_meaning)
+                if not str(valid_meaning)[:17] == '<span class="tag"'
             ]
-            return list(dict.fromkeys([mean.get_text() for mean in cleaned_meaning]))
+            return list(
+                dict.fromkeys([meaning.get_text() for meaning in cleaned_meanings])
+            )
         except:
             return []
