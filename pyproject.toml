@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mldictionary"
-version = "0.1.10"
+version = "0.1.11"
 description = "word's dictionary for several languages"
 authors = ["Pablo Emidio <p.emidiodev@gmail.com>"]
 license = "MIT"
