@@ -58,22 +58,15 @@ MLDictionary officially supports 3.9+.
 
 ### Make your own dictionary
 ```python
-from typing import List
-
 from mldictionary import Dictionary
 
 class MyOwnDictionary(Dictionary):
-    URL = 'somedictionary.com' #required
-    LANGUAGE = 'language name' #requerid
-    TARGET_TAG = 'tag_where_means_is' #depend if you're gonna overwrite _soup_meanings method
-    TARGET_ATTR = {'attr': 'attr_value'} #depend if you're gonna overwrite _soup_meanings method
+    URL = 'somedictionary.com'
+    LANGUAGE = 'language name'
+    TARGET_TAG = 'tag_where_means_is'
+    TARGET_ATTR = {'attr': 'attr_value'}
+    REPLACES = {'something', 'another thing'}
 
-    @classmethod
-    def _soup_meanings(cls, html_tree: str)->List[str]: #optional
-       '''
-        Method to overwrite the meanings select by Dictionary class;
-        Used when you wanna change something which comes with the meanings
-       '''
 >>> myowndictionary = MyOwnDictionary()
 >>> myowndictionary.get_meanings('other language word')
 ```
