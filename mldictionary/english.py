@@ -3,6 +3,7 @@
 Classes:
     English
 """
+from typing import List
 
 from .dictionary import Dictionary
 
@@ -31,3 +32,9 @@ class English(Dictionary):
     TARGET_TAG = 'div'
     TARGET_ATTR = {'class': 'ddef_d'}
     LANGUAGE = 'English'
+    REPLACES = {'\n': '', ' :': ':'}
+
+    @classmethod
+    def _replace_terms(cls, meanings: List[str]):
+        meanings = [meaning[:-2] + '.' for meaning in meanings]
+        return super()._replace_terms(meanings)
