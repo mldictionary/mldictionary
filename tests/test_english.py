@@ -1,7 +1,15 @@
 import unittest
 
+from .general_tests import GeneralTests
 from mldictionary import English
 
+
+
+class TestGeneralEnglish(GeneralTests, unittest.TestCase):
+    word = 'word'
+    
+    def setUp(self):
+        return super().setUp(English)
 
 class TestEnglish(unittest.TestCase):
     def setUp(self):
