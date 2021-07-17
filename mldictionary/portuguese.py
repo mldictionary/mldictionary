@@ -35,6 +35,7 @@ class Portuguese(Dictionary):
     TARGET_TAG = 'p'
     TARGET_ATTR = {'itemprop': 'description'}
     LANGUAGE = 'Portuguese'
+    REPLACES = {}
 
     @classmethod
     def _soup_meanings(cls, html_tree: str) -> List[str]:
