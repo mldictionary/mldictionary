@@ -37,6 +37,7 @@ class Dictionary:
     LANGUAGE: str
     TARGET_TAG: str
     TARGET_ATTR: dict[str, str]
+    REPLACES: dict[str, str]
 
     def __str__(self) -> str:
         """Return dictionary's language"""
