@@ -52,6 +52,17 @@ class Dictionary:
             return response
 
     @classmethod
+    def _replace_terms(cls, meanings: List[str]) -> List[str]:
+        """Replace the unwanted terms of meanings."""
+
+        replaced_meanings = []
+        for meaning in meanings:
+            for from_it, to in cls.REPLACES.items():
+                meaning = meaning.replace(from_it, to)
+            replaced_meanings.append(meaning)
+        return replaced_meanings
+
+    @classmethod
     def _soup_meanings(cls, html_tree: str) -> List[str]:
         try:
             soup = BeautifulSoup(html_tree, 'html.parser')
