@@ -6,9 +6,10 @@ from mldictionary import Portuguese
 
 class TestGeneralPortuguese(GeneralTests, unittest.TestCase):
     word = 'palavra'
-    
+
     def setUp(self):
         return super().setUp(Portuguese)
+
 
 class TestPortuguese(unittest.TestCase):
     def setUp(self):

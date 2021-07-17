@@ -1,17 +1,12 @@
 from typing import Union
-import unittest
-from unittest import FunctionTestCase
 
-from mldictionary import (
-    English,
-    Portuguese,
-    Spanish
-)
+from mldictionary import English, Portuguese, Spanish
 
-class GeneralTests():
+
+class GeneralTests:
     word: str
     invalid_word: str = 'djsfhkhjshdgdkhskdd'
-    
+
     def setUp(self, language_class: Union[English, Portuguese, Spanish]):
         self.dictionary = language_class()
 
