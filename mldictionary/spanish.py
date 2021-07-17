@@ -31,3 +31,4 @@ class Spanish(Dictionary):
     TARGET_TAG = 'p'
     TARGET_ATTR = {'class': 'j'}
     LANGUAGE = 'Spanish'
+    REPLACES = {}
