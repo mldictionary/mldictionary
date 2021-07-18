@@ -78,7 +78,7 @@ class Dictionary:
         word = unicodedata.normalize('NFD', word)
         word = re.sub('[\u0300-\u036f]', '', word)
         search_word_response_html = self._search(word).text
-        if meanings := self._soup_meanings(search_word_response_html) == 0:
+        if len(meanings := self._soup_meanings(search_word_response_html)) > 0:
             replaced_meanings = self._replace_terms(meanings)
             return replaced_meanings
         else:
