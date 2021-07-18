@@ -51,7 +51,7 @@ MLDictionary officially supports 3.9+.
 >>> spanish_dictionary = Spanish()
 >>> coche_means = spanish_dictionary.get_meanings('coche')
 >>> coche_means
-['1. m. Automóvil destinado al transporte de personas y con capacidad no superior a siete plazas.' ...]
+['Automóvil destinado al transporte de personas y con capacidad no superior a siete plazas.' ...]
 ```
 
 ---
