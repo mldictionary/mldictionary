@@ -25,4 +25,4 @@ jobs:
         run: poetry install
 
       - name: Runs unittest
-        run: poetry run python -m unittest
+        run: poetry run python -m unittest -v
