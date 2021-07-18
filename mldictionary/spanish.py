@@ -3,6 +3,7 @@
     Classes:
         Spanish
 """
+from typing import List
 
 from .dictionary import Dictionary
 
@@ -32,3 +33,8 @@ class Spanish(Dictionary):
     TARGET_ATTR = {'class': 'j'}
     LANGUAGE = 'Spanish'
     REPLACES = {}
+
+    @classmethod
+    def _replace_terms(cls, meanings: List[str]):
+        meanings = [meaning[6:].strip() for meaning in meanings]
+        return super()._replace_terms(meanings)
