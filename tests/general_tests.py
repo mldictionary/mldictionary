@@ -38,6 +38,8 @@ class GeneralTests:
         self.assertEqual(len(not_found_meaning), 0)
 
     def test_method_get_meanings_return_content(self):
+        is_there_a_content = len(self.dictionary.get_meanings(self.word)) > 0
+        self.assertTrue(is_there_a_content)
         is_all_content_valid = all(
             len(mean) > 0 for mean in self.dictionary.get_meanings(self.word)
         )
