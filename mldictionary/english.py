@@ -36,5 +36,11 @@ class English(Dictionary):
 
     @classmethod
     def _replace_terms(cls, meanings: List[str]):
-        meanings = [meaning[:-2] + '.' for meaning in meanings]
-        return super()._replace_terms(meanings)
+        formatted_meanings = []
+        for meaning in meanings:
+            meaning = meaning.strip()
+            if not meaning[-1:].isalpha():
+                formatted_meanings.append(meaning[:-1] + '.')
+            else:
+                formatted_meanings.append(meaning + '.')
+        return super()._replace_terms(formatted_meanings)
