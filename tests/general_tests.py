@@ -10,20 +10,21 @@ class GeneralTests:
     def setUp(self, language_class: Union[English, Portuguese, Spanish]):
         self.dictionary = language_class()
 
-    def test_attribute_URL_type(self):
-        self.assertIsInstance(self.dictionary.URL, str)
+    def test_attribute_url_type(self):
+        self.assertIsInstance(self.dictionary.url, str)
 
-    def test_attribute_LANGUAGE_type(self):
-        self.assertIsInstance(self.dictionary.LANGUAGE, str)
+    def test_attribute_language_type(self):
+        self.assertIsInstance(self.dictionary.language, str)
 
-    def test_attribute_TARGET_TAG_type(self):
-        self.assertIsInstance(self.dictionary.TARGET_TAG, str)
+    def test_attribute_target_tag_type(self):
+        self.assertIsInstance(self.dictionary.target_tag, str)
 
-    def test_attribute_TARGET_ATTR_type(self):
-        self.assertIsInstance(self.dictionary.TARGET_ATTR, dict)
+    def test_attribute_target_attr_type(self):
+        self.assertIsInstance(self.dictionary.target_attr, dict)
 
-    def test_attribute_REPLACES_type(self):
-        self.assertIsInstance(self.dictionary.REPLACES, dict)
+    def test_attribute_replaces_type(self):
+        if hasattr(self.dictionary, 'replaces'):
+            self.assertIsInstance(self.dictionary.replaces, dict)
 
     def test_method__search_status_code(self):
         response = self.dictionary._search(self.word)

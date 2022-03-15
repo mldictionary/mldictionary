@@ -14,13 +14,13 @@ class English(Dictionary):
     ...
 
     Attributes:
-        URL: str = 'https://dictionary.cambridge.org/us/dictionary/english/{}'
+        url: str = 'https://dictionary.cambridge.org/us/dictionary/english/{}'
             URL from a dictionary website replacing word's name to "{}"
-        LANGUAGE: str = 'English'
+        language: str = 'English'
             Dictionary's language's name
-        TARGET_TAG: str = 'div'
+        target_tag: str = 'div'
             HTML tag which has the meanings
-        TARGET_ATTR: dict[str, str] = {'class': 'ddef_d'}
+        target_attr: dict[str, str] = {'class': 'ddef_d'}
             Pair attribute: value which makes TARGET_TAG unique
 
     Methods:
@@ -28,11 +28,11 @@ class English(Dictionary):
             return the word's meanings
     """
 
-    URL = 'https://dictionary.cambridge.org/us/dictionary/english/{}'
-    TARGET_TAG = 'div'
-    TARGET_ATTR = {'class': 'ddef_d'}
-    LANGUAGE = 'English'
-    REPLACES = {'\n': '', ' :': ':'}
+    url = 'https://dictionary.cambridge.org/us/dictionary/english/{}'
+    target_tag = 'div'
+    target_attr = {'class': 'ddef_d'}
+    language = 'English'
+    replaces = {'\n': '', ' :': ':'}
 
     @classmethod
     def _replace_terms(cls, meanings: List[str]):

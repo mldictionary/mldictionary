@@ -12,13 +12,13 @@ class Dictionary:
     """Dictionary class to use as a base to build dictionaries.
 
     class attributes:
-        URL: str
-            URL from a dictionary website replacing word's name to "{}"
-        LANGUAGE: str
+        url: str
+            url from a dictionary website replacing word's name to "{}"
+        language: str
             Dictionary's language's name
-        TARGET_TAG: str
+        target_tag: str
             HTML tag which has the meanings
-        TARGET_ATTR: dict[str, str]
+        target_attr: dict[str, str]
             Pair attribute: value which makes TARGET_TAG unique
 
     Class public methods:
@@ -33,11 +33,11 @@ class Dictionary:
             Soup a HTML tree and find out all meanings specified
     """
 
-    URL: str
-    LANGUAGE: str
-    TARGET_TAG: str
-    TARGET_ATTR: dict[str, str]
-    REPLACES: dict[str, str]
+    url: str
+    language: str
+    target_tag: str
+    target_attr: dict[str, str]
+    replaces: dict[str, str]
 
     def __str__(self) -> str:
         """Return dictionary's language"""
@@ -47,17 +47,17 @@ class Dictionary:
     @classmethod
     def _search(cls, word: str) -> requests.models.Response:
         with requests.get(
-            cls.URL.format(word), headers={'User-Agent': 'Mozilla'}
+            cls.url.format(word), headers={'User-Agent': 'Mozilla'}
         ) as response:
             return response
 
     @classmethod
     def _replace_terms(cls, meanings: List[str]) -> List[str]:
         """Replace the unwanted terms of meanings."""
-
+        replaces = cls.replaces if hasattr(cls, 'replaces') else {}
         replaced_meanings = []
         for meaning in meanings:
-            for from_it, to in cls.REPLACES.items():
+            for from_it, to in replaces.items():
                 meaning = meaning.replace(from_it, to)
             replaced_meanings.append(meaning)
         return replaced_meanings
@@ -66,7 +66,7 @@ class Dictionary:
     def _soup_meanings(cls, html_tree: str) -> List[str]:
         try:
             soup = BeautifulSoup(html_tree, 'html.parser')
-            meaning_tags = soup.find_all(cls.TARGET_TAG, cls.TARGET_ATTR)
+            meaning_tags = soup.find_all(cls.target_tag, cls.target_attr)
             # don't allow duplicated item
             return list(dict.fromkeys([meaning.get_text() for meaning in meaning_tags]))
         except:

@@ -14,13 +14,13 @@ class Spanish(Dictionary):
     ...
 
     Attributes:
-        URL: str = 'https://dle.rae.es/{}?m=form'
+        url: str = 'https://dle.rae.es/{}?m=form'
             URL from a dictionary website replacing word's name to "{}"
-        LANGUAGE: str = 'Spanish'
+        language: str = 'Spanish'
             Dictionary's language's name
-        TARGET_TAG: str = 'p'
+        target_tag: str = 'p'
             HTML tag which has the meanings
-        TARGET_ATTR: dict[str, str] = {'class': 'j'}
+        target_attr: dict[str, str] = {'class': 'j'}
             Pair attribute: value which makes TARGET_TAG unique
 
     Methods:
@@ -28,11 +28,11 @@ class Spanish(Dictionary):
             return the word's meanings
     """
 
-    URL = 'https://dle.rae.es/{}?m=form'
-    TARGET_TAG = 'p'
-    TARGET_ATTR = {'class': 'j'}
-    LANGUAGE = 'Spanish'
-    REPLACES = {}
+    url = 'https://dle.rae.es/{}?m=form'
+    target_tag = 'p'
+    target_attr = {'class': 'j'}
+    language = 'Spanish'
+    replaces = {}
 
     @classmethod
     def _replace_terms(cls, meanings: List[str]):

@@ -17,13 +17,13 @@ class Portuguese(Dictionary):
     ...
 
     Attributes:
-        URL: str = 'https://www.dicio.com.br/{}/'
+        url: str = 'https://www.dicio.com.br/{}/'
             URL from a dictionary website replacing word's name to "{}"
-        LANGUAGE: str = 'Portuguese'
+        language: str = 'Portuguese'
             Dictionary's language's name
-        TARGET_TAG: str = 'p'
+        target_tag: str = 'p'
             HTML tag which has the meanings
-        TARGET_ATTR: dict[str, str] = {'itemprop': 'description'}
+        target_attr: dict[str, str] = {'itemprop': 'description'}
             Pair attribute: value which makes TARGET_TAG unique
 
     Methods:
@@ -31,17 +31,16 @@ class Portuguese(Dictionary):
             return the word's meanings
     """
 
-    URL = 'https://www.dicio.com.br/{}/'
-    TARGET_TAG = 'p'
-    TARGET_ATTR = {'itemprop': 'description'}
-    LANGUAGE = 'Portuguese'
-    REPLACES = {}
+    url = 'https://www.dicio.com.br/{}/'
+    target_tag = 'p'
+    target_attr = {'itemprop': 'description'}
+    language = 'Portuguese'
 
     @classmethod
     def _soup_meanings(cls, html_tree: str) -> List[str]:
         try:
             soup = BeautifulSoup(html_tree, 'html.parser')
-            meaning_tags = soup.find(cls.TARGET_TAG, cls.TARGET_ATTR).find_all('span')
+            meaning_tags = soup.find(cls.target_tag, cls.target_attr).find_all('span')
             cleaned_meanings = [
                 valid_meaning
                 for valid_meaning in meaning_tags
