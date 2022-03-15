@@ -61,11 +61,11 @@ MLDictionary officially supports 3.9+.
 from mldictionary import Dictionary
 
 class MyOwnDictionary(Dictionary):
-    URL = 'somedictionary.com'
-    LANGUAGE = 'language name'
-    TARGET_TAG = 'tag_where_means_is'
-    TARGET_ATTR = {'attr': 'attr_value'}
-    REPLACES = {'something', 'another thing'}
+    url = 'somedictionary.com'
+    language = 'language name'
+    target_tag = 'tag_where_means_is'
+    target_attr = {'attr': 'attr_value'}
+    replaces = {'something', 'another thing'}
 
 >>> myowndictionary = MyOwnDictionary()
 >>> myowndictionary.get_meanings('other language word')
