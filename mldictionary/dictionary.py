@@ -41,8 +41,7 @@ class Dictionary:
 
     def __str__(self) -> str:
         """Return dictionary's language"""
-
-        return self.LANGUAGE
+        return self.language
 
     @classmethod
     def _search(cls, word: str) -> requests.models.Response:
