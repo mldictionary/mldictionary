@@ -6,7 +6,7 @@ authors = ["Pablo Emidio <p.emidiodev@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 homepage = "https://pypi.org/project/mldictionary/"
-repository = "https://github.com/PabloEmidio/mldictionary"
+repository = "https://github.com/mldictionary/mldictionary"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
