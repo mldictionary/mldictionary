@@ -40,16 +40,18 @@ class Portuguese(Dictionary):
     def _soup_meanings(cls, html_tree: str) -> List[str]:
         try:
             soup = BeautifulSoup(html_tree, 'html.parser')
-            meaning_tags = soup.find(cls.target_tag, cls.target_attr).find_all('span')
+            meaning_tags = soup.find(
+               cls.target_tag, cls.target_attr
+            ).find_all('span')
             cleaned_meanings = [
                 valid_meaning
                 for valid_meaning in meaning_tags
-                if not 'class="cl"' in str(valid_meaning)
-                if not 'class="etim"' in str(valid_meaning)
+                if 'class="cl"' not in str(valid_meaning)
+                if 'class="etim"' not in str(valid_meaning)
                 if not str(valid_meaning)[:17] == '<span class="tag"'
             ]
-            return list(
-                dict.fromkeys([meaning.get_text() for meaning in cleaned_meanings])
-            )
-        except:
+            return list(dict.fromkeys([
+                meaning.get_text() for meaning in cleaned_meanings
+            ]))
+        except:  # noqa: E722
             return []
