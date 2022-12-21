@@ -67,8 +67,10 @@ class Dictionary:
             soup = BeautifulSoup(html_tree, 'html.parser')
             meaning_tags = soup.find_all(cls.target_tag, cls.target_attr)
             # don't allow duplicated item
-            return list(dict.fromkeys([meaning.get_text() for meaning in meaning_tags]))
-        except:
+            return list(
+               dict.fromkeys([meaning.get_text() for meaning in meaning_tags])
+            )
+        except:  # noqa: E722
             return []
 
     def get_meanings(self, word: str) -> List[str]:
