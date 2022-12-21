@@ -4,8 +4,6 @@
         Portuguese
 """
 
-from typing import List
-
 from bs4 import BeautifulSoup
 
 from .dictionary import Dictionary
@@ -36,22 +34,22 @@ class Portuguese(Dictionary):
     target_attr = {'itemprop': 'description'}
     language = 'Portuguese'
 
-    @classmethod
-    def _soup_meanings(cls, html_tree: str) -> List[str]:
-        try:
-            soup = BeautifulSoup(html_tree, 'html.parser')
-            meaning_tags = soup.find(
-               cls.target_tag, cls.target_attr
-            ).find_all('span')
-            cleaned_meanings = [
-                valid_meaning
-                for valid_meaning in meaning_tags
-                if 'class="cl"' not in str(valid_meaning)
-                if 'class="etim"' not in str(valid_meaning)
-                if not str(valid_meaning)[:17] == '<span class="tag"'
-            ]
-            return list(dict.fromkeys([
-                meaning.get_text() for meaning in cleaned_meanings
-            ]))
-        except:  # noqa: E722
+    use_custom_soup = True
+
+    def custom_soup(self, soup: BeautifulSoup) -> list[str]:
+        _target_tag = meaning_tags = soup.find(
+            self.target_tag, self.target_attr
+        )
+
+        if not _target_tag:
             return []
+
+        meaning_tags = _target_tag.find_all('span')
+
+        return [
+            valid_meaning
+            for valid_meaning in meaning_tags
+            if 'class="cl"' not in str(valid_meaning)
+            if 'class="etim"' not in str(valid_meaning)
+            if not str(valid_meaning)[:17] == '<span class="tag"'
+        ]

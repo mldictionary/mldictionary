@@ -3,7 +3,6 @@
 Classes:
     English
 """
-from typing import List
 
 from .dictionary import Dictionary
 
@@ -34,8 +33,7 @@ class English(Dictionary):
     language = 'English'
     replaces = {'\n': '', ' :': ':'}
 
-    @classmethod
-    def _replace_terms(cls, meanings: List[str]):
+    def _replace_terms(self, meanings: list[str]):
         formatted_meanings = []
         for meaning in meanings:
             meaning = meaning.strip()
