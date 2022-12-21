@@ -6,6 +6,7 @@ __version__ = '0.2.6'
 
 import logging
 
+from .dictionary import create_dictionary
 from .dictionary import Dictionary
 from .english import English
 from .portuguese import Portuguese

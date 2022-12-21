@@ -93,3 +93,26 @@ class Dictionary:
             return replaced_meanings
         else:
             return []
+
+
+def create_dictionary(
+    url: AnyStr,
+    language_name: AnyStr,
+    target_tag: str,
+    target_attr: dict[str, str],
+    replaces: Optional[dict] = None,
+) -> Type[Dictionary]:
+    """Function to create a dynamic dictionary"""
+    new_dictionary_attrs = {
+        'url': url,
+        'language': language_name,
+        'target_tag': target_tag,
+        'target_attr': target_attr,
+    }
+    if replaces is not None:
+        new_dictionary_attrs['replaces'] = replaces
+
+    NewDictionary = type(
+        language_name.replace(' ', '').title(), (Dictionary,), new_dictionary_attrs
+    )
+    return NewDictionary
