@@ -15,22 +15,22 @@
 
 <p align="center">
     <a href="https://pypi.org/project/mldictionary/" target="_blank" align="center">
-        <img alt="PyPI" src="https://img.shields.io/pypi/v/mldictionary?color=%233f7&logo=pypi&style=plastic">    
+        <img alt="PyPI" src="https://img.shields.io/pypi/v/mldictionary?color=%233f7&logo=pypi&style=plastic">
     </a>&nbsp;&nbsp;
     <a href="https://pypi.org/project/mldictionary/" target="_blank" align="center">
-        <img alt="PyPI - License" src="https://img.shields.io/pypi/l/mldictionary?color=%237f7&logo=pypi&style=plastic">    
+        <img alt="PyPI - License" src="https://img.shields.io/pypi/l/mldictionary?color=%237f7&logo=pypi&style=plastic">
     </a>&nbsp;&nbsp;
     <a href="https://pypi.org/project/mldictionary/" target="_blank" align="center">
-<img alt="GitHub Workflow Status (event)" src="https://img.shields.io/github/workflow/status/pabloemidio/mldictionary/unittest?color=%233f7&label=tests&logo=pypi&style=plastic">
+<img alt="GitHub Workflow Status (event)" src="https://img.shields.io/github/actions/workflow/status/mldictionary/mldictionary/unittest.yaml?branch=main&color=%233f7&label=tests&logo=pypi&style=plastic">
     </a>&nbsp;&nbsp;
     <a href="https://pypi.org/project/mldictionary/" target="_blank" align="center">
-        <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/mldictionary?color=%237f7&logo=pypi&style=plastic">    
+        <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/mldictionary?color=%237f7&logo=pypi&style=plastic">
     </a>
 </p>
 
 ---
 
-## **Installing MLDictionary** 
+## **Installing MLDictionary**
 
 ```console
 $ pip install mldictionary
@@ -70,6 +70,6 @@ class MyOwnDictionary(Dictionary):
 >>> myowndictionary = MyOwnDictionary()
 >>> myowndictionary.get_meanings('other language word')
 ```
-To more details, see the [wiki](https://github.com/PabloEmidio/mldictionary/wiki)
+To more details, see the [wiki](https://github.com/mldictionary/mldictionary/wiki)
 
 Also, it has a insightful [article on linkedin](https://www.linkedin.com/pulse/mldictionary-pablo-em%25C3%25ADdio)
